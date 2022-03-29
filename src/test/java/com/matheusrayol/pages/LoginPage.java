@@ -8,6 +8,7 @@ public class LoginPage extends PageBase {
     By usernameField = By.xpath("//input[@name='username']");
     By passwordField = By.xpath("//input[@name='password']");
     By loginButton = By.xpath("//input[@type='submit']");
+    By errorMessage = By.xpath("//font[@color='red']");
 
     // Ações da página de login
     public void preencherUsuario(String usuario) {
@@ -23,10 +24,6 @@ public class LoginPage extends PageBase {
     }
 
     public String retornaMensagemErroLogin() {
-        return getText(By.xpath("//font[@color='red']"));
-    }
-
-    public String retornaMensagemSucessoLogin() {
-        return getText(By.xpath("//td[@class='login-info-left']"));
+        return getText(errorMessage);
     }
 }

@@ -4,6 +4,7 @@ import com.matheusrayol.GlobalParameters;
 import com.matheusrayol.utils.DriverUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.apache.commons.lang3.time.StopWatch;
 import java.time.Duration;
@@ -51,9 +52,12 @@ public class PageBase {
         waitForElement(locator).sendKeys(text);
     }
 
-
     protected String getText(By locator) {
         return waitForElement(locator).getText();
     }
 
+    protected void selectComboBox(By locator, String text) {
+        Select comboBox = new Select(waitForElement(locator));
+        comboBox.selectByVisibleText(text);
+    }
 }
